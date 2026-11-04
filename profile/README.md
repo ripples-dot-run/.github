@@ -5,16 +5,21 @@
 Ripples is a launchpad on Solana and Robinhood Chain. A launch creates a fixed-supply token with a
 market built into it, and it can carry an NFT collection tied to that market.
 
-The link is the point. A fifth of every mint goes into the token's market, and each mint reserves a
-share of the token supply for the wallet that bought it. Collectors fund the market they end up
-holding. When a market reaches its funding target its liquidity moves into a pool and locks, on
-Raydium on Solana and Uniswap v4 on Robinhood Chain.
+The link is the point. Every piece minted before the market reaches its target pays 10%, 20% or 40%
+of its price into that market, and the people who minted share 2%, 5% or 10% of the token supply,
+released after a cliff. Collectors fund the market they end up holding. When a market reaches its
+target its liquidity locks: on Solana in a new Meteora pool, and on Robinhood Chain in the Uniswap v4
+pool it already trades in.
 
-Every launch is approved in the creator's own wallet. Ripples never holds a key, and no launch
-requires the creator to write or publish code.
+On Robinhood Chain, a market launched since 2 November 2026 also adds part of every trade fee to
+liquidity locked in its own pool.
+
+Every transaction on ripples.run is one you approve in your own wallet, and no launch requires
+writing or publishing code.
 
 **[ripples.run](https://ripples.run)** · [How it works](https://ripples.run/about) ·
-[Developer reference](https://ripples.run/docs) · [Genesis](https://ripples.run/genesis)
+[Developer reference](https://ripples.run/docs) · [Genesis](https://ripples.run/genesis) ·
+[日本語](https://ripples.run/ja) · [简体中文](https://ripples.run/zh)
 
 ### On chain
 
@@ -23,23 +28,25 @@ a market is legible to a terminal from its first trade rather than after a filin
 
 | | |
 | --- | --- |
-| Token launch factory | [`0x149eB358fF19056c0952577fb248C7f7c861eCaF`](https://robinhoodchain.blockscout.com/address/0x149eB358fF19056c0952577fb248C7f7c861eCaF) |
-| Launch hook | [`0xaF59944A7d03B914567cb0272b7E588A7aE7AAC4`](https://robinhoodchain.blockscout.com/address/0xaF59944A7d03B914567cb0272b7E588A7aE7AAC4) |
+| Token launch factory | [`0x8C43801Fe498B9C400F1D376198727Ecf8AfCAC6`](https://robinhoodchain.blockscout.com/address/0x8C43801Fe498B9C400F1D376198727Ecf8AfCAC6) |
+| Hook | [`0xBA7401628167fbcd8f9db9F6ad2dDA72aB41EAcc`](https://robinhoodchain.blockscout.com/address/0xBA7401628167fbcd8f9db9F6ad2dDA72aB41EAcc) |
 | Solana program | `RippcKjgg9pkjHY7RKp6R1K8jPGwq2BRSJcgbErufjF` |
 
-Robinhood Chain is 4663. Verify deployed bytecode against the verified sources before trusting an
-address; the full record is published at [ripples.run/proof](https://ripples.run/proof).
+Robinhood Chain is 4663. [contracts](https://github.com/ripples-dot-run/contracts) has the source and
+the deployed addresses on Robinhood Chain, Base, Ethereum and Arc. Verify deployed bytecode against
+the verified sources before trusting an address; the addresses a launch depends on are also
+published at [ripples.run/docs#proof](https://ripples.run/docs#proof).
 
 ### $RIPPLES
 
-The protocol token buys and burns itself from trading fees. A share of every trade on a Ripples
-market buys $RIPPLES on the open market and sends what it buys to the dead address. Nothing is
-minted to fund it, and each buy is bounded on chain.
+Part of the platform's share of trade fees on Robinhood Chain buys $RIPPLES on the open market and
+adds it, with WETH, to a full-range position owned by the dead address, so it can never be
+withdrawn. Nothing is minted to fund it, and each buy is bounded on chain.
 
 | | |
 | --- | --- |
 | $RIPPLES | [`0xC465130Ac047cc363D3839b4DE1C8F35Cf8aE9fd`](https://robinhoodchain.blockscout.com/address/0xC465130Ac047cc363D3839b4DE1C8F35Cf8aE9fd) |
-| Buyback burner | [`0xA206C88C69C241A8BdF02636b890E7573bFfC20f`](https://robinhoodchain.blockscout.com/address/0xA206C88C69C241A8BdF02636b890E7573bFfC20f) |
+| Buyback | [`0x4B2B547688a7D39512937aD9583315619c3Ce711`](https://robinhoodchain.blockscout.com/address/0x4B2B547688a7D39512937aD9583315619c3Ce711) |
 
 ### Contact
 
